@@ -1,0 +1,57 @@
+{
+  "skills": [
+    {
+      "name": "Skill 1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies."
+    },
+    {
+      "name": "Skill 2",
+      "description": "Praesent convallis orci vitae ligula pharetra, vitae hendrerit massa ornare. Ut tellus magna, sollicitudin eget libero eget, vestibulum euismod neque. Sed pellentesque lorem a viverra porttitor. Mauris vel lacinia neque."
+    }
+  ],
+  "portfolio": {
+    "heading": "Portfolio",
+    "subheading": "Some of the work(s) that I've done",
+    "works": [
+      {
+        "name": "Work 1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
+        "img": "/assets/stock-1.jpg",
+        "img_alt": "Iridescent ripples of a bright blue and pink liquid"
+      },
+      {
+        "name": "Work 2",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
+        "img": "/assets/stock-2.jpg",
+        "img_alt": "A bright pink sheet of paper used to wrap flowers curves in front of rich blue background"
+      },
+      {
+        "name": "Work 3",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
+        "img": "/assets/stock-3.jpg",
+        "img_alt": "Pearls of silky soft white cotton, bubble up under vibrant lighting"
+      },
+      {
+        "name": "Work 4",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
+        "img": "/assets/stock-4.jpg",
+        "img_alt": "Soft pink and baby blue water ripples together in a subtle texture."
+      }
+    ]
+  },
+  "accolades": {
+    "heading": "Accolades",
+    "subheading": "Lorem ipsum dolor sit amet",
+    "quotes": [
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit",
+      "Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor",
+      "Quisque lobortis laoreet tincidunt",
+      "Morbi sagittis urna sed lacus scelerisque ultricies"
+    ]
+  },
+  "contact": {
+    "text": "Want to work with me?",
+    "btn": "Send message"
+  }
+}

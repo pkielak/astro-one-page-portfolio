@@ -1,0 +1,347 @@
+---
+import { skills, portfolio, accolades } from "../content.json";
+
+// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Component Imports
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Icon from "../components/Icon.astro";
+import Pill from "../components/Pill.astro";
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+
+// Page section components
+import ContactCTA from "../components/ContactCTA.astro";
+import Skills from "../components/Skills.astro";
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/basics/astro-components/
+---
+
+<BaseLayout>
+    <Nav />
+    <main class="wrapper stack">
+        <section id="about" data-nav-id="about-nav" class="py-22 lg:py-28">
+            <header class="hero">
+                <Hero
+                    title="Hi, I'm John Doe"
+                    tagline="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+                    align="start"
+                >
+                    <div class="roles">
+                        {
+                            skills.map((skill) => (
+                                <Pill>
+                                    <Icon icon="pencil-line" size="1.33em" />{" "}
+                                    {skill.name}
+                                </Pill>
+                            ))
+                        }
+                    </div>
+                </Hero>
+
+                <img
+                    alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
+                    width="480"
+                    height="620"
+                    src="/assets/portrait.jpg"
+                />
+            </header>
+        </section>
+        <section id="skills" data-nav-id="skills-nav" class="py-22 lg:py-28">
+            <Skills />
+        </section>
+        <section
+            id="portfolio"
+            data-nav-id="portfolio-nav"
+            class="with-background py-22 lg:py-28"
+        >
+            <header class="section-header stack gap-2 lg:gap-4">
+                <h3>{portfolio.heading}</h3>
+                <p>{portfolio.subheading}</p>
+            </header>
+
+            <div class="gallery book-covers">
+                {
+                    portfolio.works.map((project) => (
+                        <li class="book-cover">
+                            <PortfolioPreview project={project} />
+                        </li>
+                    ))
+                }
+            </div>
+        </section>
+
+        <section
+            id="accolades"
+            data-nav-id="accolades-nav"
+            class="with-background bg-variant py-22 lg:py-28"
+        >
+            <header class="section-header stack gap-2 lg:gap-4">
+                <h3>{accolades.heading}</h3>
+                <p>{accolades.subheading}</p>
+            </header>
+
+            <div class="gallery mentions">
+                {
+                    accolades.quotes.map((quote) => (
+                        <blockquote class="quote">
+                            <p>{quote}</p>
+                        </blockquote>
+                    ))
+                }
+            </div>
+        </section>
+        <ContactCTA />
+    </main>
+</BaseLayout>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        gap: 3rem;
+    }
+
+    @media (min-width: 48rem) {
+        section {
+            gap: 5rem;
+        }
+    }
+
+    .roles {
+        display: none;
+    }
+
+    @media (min-width: 48rem) {
+        .roles {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .hero img {
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    @media (min-width: 48rem) {
+        .hero {
+            display: grid;
+            grid-template-columns: 6fr 4fr;
+            gap: 5rem;
+        }
+
+        .hero img {
+            border-radius: 4.5rem;
+        }
+    }
+
+    /* ====================================================== */
+
+    .with-background {
+        position: relative;
+    }
+
+    .with-background::before {
+        --hero-bg: var(--bg-image-subtle-2);
+
+        content: "";
+        position: absolute;
+        pointer-events: none;
+        left: 50%;
+        width: 100vw;
+        aspect-ratio: calc(2.25 / var(--bg-scale));
+        top: 0;
+        transform: translateY(-75%) translateX(-50%);
+        background:
+            url("/assets/backgrounds/noise.png") top center/220px repeat,
+            var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
+            var(--gray-999);
+        background-blend-mode: overlay, normal, normal, normal;
+        mix-blend-mode: var(--bg-blend-mode);
+        z-index: -1;
+    }
+
+    .with-background.bg-variant::before {
+        --hero-bg: var(--bg-image-subtle-1);
+    }
+
+    .section-header {
+        justify-self: center;
+        text-align: center;
+        max-width: 50ch;
+        font-size: var(--text-md);
+        color: var(--gray-300);
+    }
+
+    .section-header h3 {
+        font-size: var(--text-2xl);
+    }
+
+    @media (min-width: 48rem) {
+        .section-header {
+            font-size: var(--text-lg);
+        }
+
+        .section-header h3 {
+            font-size: var(--text-4xl);
+        }
+    }
+
+    /* ====================================================== */
+
+    .gallery {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        gap: 3rem;
+        width: 100%;
+        max-width: 1024px;
+        list-style: none;
+    }
+
+    @media (min-width: 48rem) {
+        .gallery {
+            gap: 5rem;
+            margin: 0 auto;
+        }
+    }
+
+    blockquote {
+        text-align: center;
+        font-style: italic;
+    }
+
+    blockquote > p {
+        display: inline;
+        font-size: var(--text-xl);
+        line-height: 2rem;
+    }
+
+    blockquote:before {
+        position: relative;
+        content: "“";
+        bottom: -1rem;
+        font-size: var(--text-xl);
+    }
+
+    blockquote:after {
+        content: "”";
+        font-size: var(--text-xl);
+    }
+
+    @media (min-width: 36rem) {
+        .quote:nth-of-type(1) {
+            grid-area: mention1;
+        }
+
+        .quote:nth-of-type(2) {
+            grid-area: mention2;
+        }
+
+        .quote:nth-of-type(3) {
+            grid-area: mention3;
+        }
+
+        .quote:nth-of-type(4) {
+            grid-area: mention4;
+        }
+
+        .quote:nth-of-type(5) {
+            grid-area: mention5;
+        }
+
+        .mentions {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+                "mention1 mention1 ."
+                ". mention2 mention2"
+                "mention3 mention3 ."
+                ". mention4 mention4"
+                "mention5 mention5 .";
+        }
+    }
+
+    @media (min-width: 36rem) {
+        .book-cover:nth-of-type(1) {
+            grid-area: book-cover1;
+        }
+
+        .book-cover:nth-of-type(2) {
+            grid-area: book-cover2;
+        }
+
+        .book-cover:nth-of-type(3) {
+            grid-area: book-cover3;
+        }
+
+        .book-cover:nth-of-type(4) {
+            grid-area: book-cover4;
+        }
+
+        .book-cover:nth-of-type(5) {
+            grid-area: book-cover5;
+        }
+
+        .book-covers {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-areas:
+                "book-cover1 ."
+                "book-cover1 book-cover2"
+                "book-cover3 book-cover2"
+                "book-cover3 book-cover4"
+                ". book-cover4";
+        }
+    }
+</style>
+
+<script>
+    const createObserver = (element: Element | null) => {
+        const options = {
+            threshold: 0.5,
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            const navElement = document.querySelector(
+                `#${(element as HTMLElement | null)?.dataset?.navId}`,
+            );
+            entries.forEach((entry, idx) => {
+                if (!navElement) return;
+                if (entry.isIntersecting) {
+                    document
+                        .querySelectorAll(".menu-content a")
+                        .forEach((link) => link.classList.remove("active"));
+                    navElement.classList.add("active");
+                }
+            });
+        }, options);
+
+        element && observer.observe(element);
+    };
+
+    const sections = document.querySelectorAll(
+        "#about, #portfolio, #skills, #accolades",
+    );
+
+    sections.forEach((section) => {
+        createObserver(section);
+    });
+</script>

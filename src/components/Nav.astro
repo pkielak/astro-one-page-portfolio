@@ -1,0 +1,229 @@
+---
+import Icon from "./Icon.astro";
+
+/** Main menu items */
+const textLinks: { id: string; label: string; href: string }[] = [
+    { id: "about-nav", label: "About", href: "/#about" },
+    { id: "skills-nav", label: "Skills", href: "/#skills" },
+    { id: "portfolio-nav", label: "Portfolio", href: "/#portfolio" },
+    { id: "accolades-nav", label: "Accolades", href: "/#accolades" },
+];
+---
+
+<nav>
+    <menu-button>
+        <template>
+            <button class="menu-button" aria-expanded="false">
+                <span class="sr-only">Menu</span>
+                <Icon icon="list" />
+            </button>
+        </template>
+    </menu-button>
+
+    <noscript>
+        <ul class="nav-items">
+            {
+                textLinks.map(({ id, label, href }) => (
+                    <li>
+                        <a
+                            id={id}
+                            aria-current={Astro.url.pathname === href}
+                            class:list={[
+                                "link",
+                                {
+                                    active:
+                                        Astro.url.pathname === href ||
+                                        (href !== "/" &&
+                                            Astro.url.pathname.startsWith(
+                                                href,
+                                            )),
+                                },
+                            ]}
+                            href={href}
+                        >
+                            {label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </noscript>
+    <div id="menu-content" hidden>
+        <ul class="nav-items">
+            {
+                textLinks.map(({ id, label, href }) => (
+                    <li>
+                        <a
+                            id={id}
+                            aria-current={Astro.url.pathname === href}
+                            class:list={[
+                                "link",
+                                {
+                                    active:
+                                        Astro.url.pathname === href ||
+                                        (href !== "/" &&
+                                            Astro.url.pathname.startsWith(
+                                                href,
+                                            )),
+                                },
+                            ]}
+                            href={href}
+                        >
+                            {label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+</nav>
+
+<script>
+    class MenuButton extends HTMLElement {
+        constructor() {
+            super();
+
+            // Inject menu toggle button when JS runs.
+            this.appendChild(
+                this.querySelector("template")!.content.cloneNode(true),
+            );
+            const btn = this.querySelector("button")!;
+
+            // Hide menu (shown by default to support no-JS browsers).
+            const menu = document.getElementById("menu-content")!;
+            menu.hidden = true;
+            // Add "menu-content" class in JS to avoid covering content in non-JS browsers.
+            menu.classList.add("menu-content");
+
+            /** Set whether the menu is currently expanded or collapsed. */
+            const setExpanded = (expand: boolean) => {
+                btn.setAttribute("aria-expanded", expand ? "true" : "false");
+                menu.hidden = !expand;
+            };
+
+            // Toggle menu visibility when the menu button is clicked.
+            btn.addEventListener("click", () => setExpanded(menu.hidden));
+
+            // Hide menu button for large screens.
+            const handleViewports = (
+                e: MediaQueryList | MediaQueryListEvent,
+            ) => {
+                setExpanded(e.matches);
+                btn.hidden = e.matches;
+            };
+            const mediaQueries = window.matchMedia("(min-width: 48rem)");
+            handleViewports(mediaQueries);
+            mediaQueries.addEventListener("change", handleViewports);
+        }
+    }
+    customElements.define("menu-button", MenuButton);
+</script>
+
+<style>
+    .menu-button {
+        position: fixed;
+        display: flex;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 999;
+        border: 0;
+        border-radius: 999rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        color: var(--gray-300);
+        background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+        box-shadow: var(--shadow-md);
+    }
+
+    .menu-button[aria-expanded="true"] {
+        color: var(--gray-0);
+        background: linear-gradient(180deg, var(--gray-600), transparent),
+            radial-gradient(var(--gray-900), var(--gray-800) 150%);
+    }
+
+    .menu-button[hidden] {
+        display: none;
+    }
+
+    .menu-content {
+        position: fixed;
+        z-index: 999;
+        top: 5.5rem;
+        right: 1.5rem;
+    }
+
+    .nav-items {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: var(--text-md);
+        line-height: 1.2;
+        list-style: none;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
+        box-shadow: var(--shadow-md);
+        border-bottom: 1px solid var(--gray-800);
+    }
+
+    .link {
+        display: inline-block;
+        color: var(--gray-300);
+        text-decoration: none;
+    }
+
+    .link.active {
+        color: var(--gray-0);
+    }
+
+    @media (min-width: 48rem) {
+        .menu-content {
+            top: 2rem;
+        }
+
+        .nav-items {
+            position: relative;
+            flex-direction: row;
+            font-size: var(--text-sm);
+            line-height: 18px;
+            border: 0;
+            border-radius: 999rem;
+            padding: 0.5rem 0.5625rem;
+        }
+
+        .link {
+            padding: 0.5rem 1rem;
+            border-radius: 999rem;
+            transition:
+                color var(--theme-transition),
+                background-color var(--theme-transition);
+        }
+
+        .link:hover,
+        .link:focus {
+            color: var(--gray-100);
+            background-color: var(--accent-subtle-overlay);
+        }
+
+        .link.active {
+            color: var(--accent-text-over);
+            background-color: var(--accent-regular);
+        }
+    }
+
+    @media (min-width: 62rem) {
+        .menu-content {
+            left: 50%;
+            right: unset;
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (forced-colors: active) {
+        .link.active {
+            color: SelectedItem;
+        }
+    }
+</style>
