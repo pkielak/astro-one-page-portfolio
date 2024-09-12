@@ -1,0 +1,125 @@
+---
+import Section from "./Section.astro";
+import { portfolio } from "../content.json";
+---
+
+<Section
+    id="portfolio"
+    navId="portfolio-nav"
+    heading={portfolio.heading}
+    subheading={portfolio.subheading}
+>
+    <div class="book-covers">
+        {
+            portfolio.works.map(({ name, author, background }) => (
+                <div class="book-cover" style={`--book-bg: ${background};`}>
+                    <div class="text">
+                        <p class="author">{author}</p>
+                        <h5 class="title">{name}</h5>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</Section>
+
+<style>
+    .book-covers {
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        gap: 3rem;
+        width: 100%;
+        max-width: 1024px;
+        list-style: none;
+    }
+
+    .book-cover {
+        display: flex;
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 5/7;
+        border: 1px solid var(--gray-800);
+        background: var(--book-bg);
+        border-radius: 0.25rem;
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: box-shadow var(--theme-transition);
+    }
+
+    .book-cover::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 10px;
+        width: 3px;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.06);
+        box-shadow: 1px 0 3px rgba(255, 255, 255, 0.1);
+    }
+
+    .book-cover:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        gap: 1rem;
+        padding: 2rem 1rem;
+        font-family: var(--font-brand);
+        text-align: center;
+        width: 100%;
+    }
+
+    .text * {
+        color: var(--gray-999);
+    }
+
+    @media (min-width: 36rem) {
+        .book-cover:nth-of-type(1) {
+            grid-area: book-cover1;
+        }
+
+        .book-cover:nth-of-type(2) {
+            grid-area: book-cover2;
+        }
+
+        .book-cover:nth-of-type(3) {
+            grid-area: book-cover3;
+        }
+
+        .book-cover:nth-of-type(4) {
+            grid-area: book-cover4;
+        }
+
+        .book-cover:nth-of-type(5) {
+            grid-area: book-cover5;
+        }
+
+        .book-covers {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-areas:
+                "book-cover1 ."
+                "book-cover1 book-cover2"
+                "book-cover3 book-cover2"
+                "book-cover3 book-cover4"
+                ". book-cover4";
+        }
+    }
+
+    @media (min-width: 48rem) {
+        .book-covers {
+            gap: 5rem;
+            margin: 0 auto;
+        }
+    }
+</style>

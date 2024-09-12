@@ -1,0 +1,96 @@
+---
+import Section from "./Section.astro";
+import { accolades } from "../content.json";
+---
+
+<Section
+    id="accolades"
+    navId="accolades-nav"
+    heading={accolades.heading}
+    subheading={accolades.subheading}
+>
+    <div class="mentions">
+        {
+            accolades.quotes.map((quote) => (
+                <blockquote class="quote">
+                    <p>{quote}</p>
+                </blockquote>
+            ))
+        }
+    </div>
+</Section>
+
+<style>
+    .mentions {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        gap: 3rem;
+        width: 100%;
+        max-width: 1024px;
+        list-style: none;
+    }
+
+    @media (min-width: 48rem) {
+        .mentions {
+            gap: 5rem;
+            margin: 0 auto;
+        }
+    }
+
+    blockquote {
+        text-align: center;
+        font-style: italic;
+    }
+
+    blockquote > p {
+        display: inline;
+        font-size: var(--text-xl);
+        line-height: 2rem;
+    }
+
+    blockquote:before {
+        position: relative;
+        content: "“";
+        bottom: -1rem;
+        font-size: var(--text-xl);
+    }
+
+    blockquote:after {
+        content: "”";
+        font-size: var(--text-xl);
+    }
+
+    @media (min-width: 36rem) {
+        .quote:nth-of-type(1) {
+            grid-area: mention1;
+        }
+
+        .quote:nth-of-type(2) {
+            grid-area: mention2;
+        }
+
+        .quote:nth-of-type(3) {
+            grid-area: mention3;
+        }
+
+        .quote:nth-of-type(4) {
+            grid-area: mention4;
+        }
+
+        .quote:nth-of-type(5) {
+            grid-area: mention5;
+        }
+
+        .mentions {
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas:
+                "mention1 mention1 ."
+                ". mention2 mention2"
+                "mention3 mention3 ."
+                ". mention4 mention4"
+                "mention5 mention5 .";
+        }
+    }
+</style>

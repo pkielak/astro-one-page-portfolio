@@ -1,22 +1,85 @@
 ---
+import Section from "./Section.astro";
+import Icon from "./Icon.astro";
+import Pill from "./Pill.astro";
+
+import { skills } from "../content.json";
+
 interface Props {
     title: string;
     tagline?: string;
-    align?: "start" | "center";
 }
 
-const { align = "center", tagline, title } = Astro.props;
+const { tagline, title } = Astro.props;
 ---
 
-<div class:list={["hero stack gap-4", align]}>
-    <div class="stack gap-2">
-        <h1 class="title">{title}</h1>
-        {tagline && <p class="tagline">{tagline}</p>}
-    </div>
-    <slot />
-</div>
+<Section id="about" navId="about-nav">
+    <header>
+        <div class="hero stack gap-4 start">
+            <div class="stack gap-2">
+                <h1 class="title">{title}</h1>
+                {tagline && <p class="tagline">{tagline}</p>}
+            </div>
+            <div class="roles">
+                {
+                    skills.map((skill) => (
+                        <Pill>
+                            <Icon icon="pencil-line" size="1.33em" />{" "}
+                            {skill.name}
+                        </Pill>
+                    ))
+                }
+            </div>
+        </div>
+        <img
+            alt="Me smiling, while walking in the park"
+            width="480"
+            height="620"
+            src="/assets/portrait.jpg"
+        />
+    </header>
+</Section>
 
 <style>
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    header img {
+        aspect-ratio: 3 / 4;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    @media (min-width: 48rem) {
+        header {
+            display: grid;
+            grid-template-columns: 6fr 4fr;
+            gap: 5rem;
+        }
+
+        header img {
+            border-radius: 4.5rem;
+        }
+    }
+
+    .roles {
+        display: none;
+    }
+
+    @media (min-width: 48rem) {
+        .roles {
+            margin-top: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+    }
+
     .hero {
         font-size: var(--text-lg);
         text-align: center;

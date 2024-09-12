@@ -1,24 +1,27 @@
 ---
 import Icon from "./Icon.astro";
+import Section from "./Section.astro";
 import { skills } from "../content.json";
 ---
 
-<div class="skills">
-    {
-        skills.map((skill) => (
-            <div class="box stack gap-2 lg:gap-4">
-                <Icon
-                    icon="pencil-line"
-                    color="var(--accent-regular)"
-                    size="2.5rem"
-                    gradient
-                />
-                <h2>{skill.name}</h2>
-                <p>{skill.description}</p>
-            </div>
-        ))
-    }
-</div>
+<Section id="skills" navId="skills-nav">
+    <div class="skills">
+        {
+            skills.map((skill) => (
+                <div class="box stack gap-2 lg:gap-4">
+                    <Icon
+                        icon="pencil-line"
+                        color="var(--accent-regular)"
+                        size="2.5rem"
+                        gradient
+                    />
+                    <h2>{skill.name}</h2>
+                    <p>{skill.description}</p>
+                </div>
+            ))
+        }
+    </div>
+</Section>
 
 <style>
     .box {

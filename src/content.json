@@ -14,28 +14,28 @@
     "subheading": "Some of the work(s) that I've done",
     "works": [
       {
-        "name": "Work 1",
+        "name": "Lorem ipsum",
+        "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "img": "/assets/stock-1.jpg",
-        "img_alt": "Iridescent ripples of a bright blue and pink liquid"
+        "background": "#b7e4ea"
       },
       {
-        "name": "Work 2",
+        "name": "Dolor sit amet",
+        "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "img": "/assets/stock-2.jpg",
-        "img_alt": "A bright pink sheet of paper used to wrap flowers curves in front of rich blue background"
+        "background": "#acb1d9"
       },
       {
-        "name": "Work 3",
+        "name": "Consectetur adipiscing elit",
+        "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "img": "/assets/stock-3.jpg",
-        "img_alt": "Pearls of silky soft white cotton, bubble up under vibrant lighting"
+        "background": "#c5b0ad"
       },
       {
-        "name": "Work 4",
+        "name": "Quisque nisi odio",
+        "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "img": "/assets/stock-4.jpg",
-        "img_alt": "Soft pink and baby blue water ripples together in a subtle texture."
+        "background": "#f7ced6"
       }
     ]
   },
