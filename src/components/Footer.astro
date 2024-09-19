@@ -1,23 +1,37 @@
 ---
+import ContactCTA from "./ContactCTA.astro";
+
 import Icon from "./Icon.astro";
 const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-    <div class="group">
-        <p>
-            Designed & Developed with <a href="https://astro.build/">Astro</a>
-            <Icon icon="rocket-launch" size="1.2em" />
+    <ContactCTA />
+    <div class="footer-body">
+        <div class="group">
+            <p>
+                Designed & Developed with <a href="https://astro.build/"
+                    >Astro</a
+                >
+                <Icon icon="rocket-launch" size="1.2em" />
+            </p>
+            <p>&copy; {currentYear} John Doe</p>
+        </div>
+        <p class="socials">
+            <a href=""> Facebook</a>
+            <a href=""> Instagram</a>
         </p>
-        <p>&copy; {currentYear} John Doe</p>
     </div>
-    <p class="socials">
-        <a href=""> Facebook</a>
-        <a href=""> Instagram</a>
-    </p>
 </footer>
 <style>
     footer {
+        background: linear-gradient(
+            0deg,
+            rgba(255, 237, 208, 0.75) 0%,
+            rgba(255, 237, 208, 0.5) 100%
+        );
+    }
+    .footer-body {
         display: flex;
         flex-direction: column;
         gap: 3rem;
@@ -28,15 +42,15 @@ const currentYear = new Date().getFullYear();
         font-size: var(--text-sm);
     }
 
-    footer a {
+    .footer-body a {
         color: var(--gray-400);
         text-decoration: 1px solid underline transparent;
         text-underline-offset: 0.25em;
         transition: text-decoration-color var(--theme-transition);
     }
 
-    footer a:hover,
-    footer a:focus {
+    .footer-body a:hover,
+    .footer-body a:focus {
         text-decoration-color: currentColor;
     }
 
@@ -54,7 +68,7 @@ const currentYear = new Date().getFullYear();
     }
 
     @media (min-width: 48rem) {
-        footer {
+        .footer-body {
             flex-direction: row;
             justify-content: space-between;
             padding: 2.5rem 4rem;

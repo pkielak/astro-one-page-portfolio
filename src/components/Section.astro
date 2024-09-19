@@ -4,12 +4,13 @@ interface Props {
     navId: string;
     heading?: string;
     subheading?: string;
+    backgroundColor?: string;
 }
 
-const { id, navId, heading, subheading } = Astro.props;
+const { id, navId, heading, subheading, backgroundColor } = Astro.props;
 ---
 
-<section id={id} data-nav-id={navId} class={`with-background py-22 lg:py-28`}>
+<section id={id} data-nav-id={navId} class="py-22 lg:py-28">
     {
         (heading || subheading) && (
             <header class="section-header stack gap-2 lg:gap-4">
@@ -21,7 +22,11 @@ const { id, navId, heading, subheading } = Astro.props;
     <slot />
 </section>
 
-<style>
+<style
+    define:vars={{
+        background: backgroundColor || "#fff",
+    }}
+>
     section {
         display: flex;
         flex-direction: column;
@@ -29,6 +34,9 @@ const { id, navId, heading, subheading } = Astro.props;
         align-items: center;
         min-height: 100vh;
         gap: 3rem;
+        background: var(--background);
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     @media (min-width: 48rem) {
@@ -37,28 +45,9 @@ const { id, navId, heading, subheading } = Astro.props;
         }
     }
 
-    .with-background {
-        position: relative;
-    }
-
-    .with-background::before {
-        --hero-bg: var(--bg-image-subtle-2);
-
-        content: "";
-        position: absolute;
-        pointer-events: none;
-        left: 50%;
-        width: 100vw;
-        aspect-ratio: calc(2.25 / var(--bg-scale));
-        top: 0;
-        transform: translateY(-75%) translateX(-50%);
-        background:
-            url("/assets/backgrounds/noise.png") top center/220px repeat,
-            var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-            var(--gray-999);
-        background-blend-mode: overlay, normal, normal, normal;
-        mix-blend-mode: var(--bg-blend-mode);
-        z-index: -1;
+    @media (min-width: 62rem) {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     .section-header {

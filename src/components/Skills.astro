@@ -4,7 +4,11 @@ import Section from "./Section.astro";
 import { skills } from "../content.json";
 ---
 
-<Section id="skills" navId="skills-nav">
+<Section
+    id="skills"
+    navId="skills-nav"
+    backgroundColor="linear-gradient(0deg, rgba(255,237,208,0.5) 0%, rgba(255,255,255,1) 16%, rgba(255,255,255,1) 84%, rgba(255,237,208,0.5) 100%)"
+>
     <div class="skills">
         {
             skills.map((skill) => (

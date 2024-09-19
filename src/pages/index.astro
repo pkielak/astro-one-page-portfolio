@@ -10,7 +10,6 @@ import Hero from "../components/Hero.astro";
 import Skills from "../components/Skills.astro";
 import Portfolio from "../components/Portfolio.astro";
 import Accolades from "../components/Accolades.astro";
-import ContactCTA from "../components/ContactCTA.astro";
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
@@ -18,7 +17,7 @@ import ContactCTA from "../components/ContactCTA.astro";
 
 <BaseLayout>
     <Nav />
-    <main class="wrapper stack">
+    <main class="stack">
         <Hero
             title="Hi, I'm John Doe"
             tagline="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -26,7 +25,6 @@ import ContactCTA from "../components/ContactCTA.astro";
         <Skills />
         <Portfolio />
         <Accolades />
-        <ContactCTA />
     </main>
 </BaseLayout>
 
