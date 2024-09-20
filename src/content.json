@@ -17,25 +17,25 @@
         "name": "Lorem ipsum",
         "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "background": "#b7e4ea"
+        "background": "#C06E52"
       },
       {
         "name": "Dolor sit amet",
         "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "background": "#acb1d9"
+        "background": "#F96F5D"
       },
       {
         "name": "Consectetur adipiscing elit",
         "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "background": "#c5b0ad"
+        "background": "#17BEBB"
       },
       {
         "name": "Quisque nisi odio",
         "author": "John Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
-        "background": "#f7ced6"
+        "background": "#8EB1C7"
       }
     ]
   },

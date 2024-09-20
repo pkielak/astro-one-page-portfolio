@@ -7,7 +7,7 @@ import { skills } from "../content.json";
 <Section
     id="skills"
     navId="skills-nav"
-    backgroundColor="linear-gradient(0deg, rgba(255,237,208,0.5) 0%, rgba(255,255,255,1) 16%, rgba(255,255,255,1) 84%, rgba(255,237,208,0.5) 100%)"
+    backgroundColor="rgba(123, 141, 162, 0.5)"
 >
     <div class="skills">
         {
@@ -17,7 +17,6 @@ import { skills } from "../content.json";
                         icon="pencil-line"
                         color="var(--accent-regular)"
                         size="2.5rem"
-                        gradient
                     />
                     <h2>{skill.name}</h2>
                     <p>{skill.description}</p>
@@ -32,7 +31,7 @@ import { skills } from "../content.json";
         border: 1px solid var(--gray-800);
         border-radius: 0.75rem;
         padding: 1.5rem;
-        background-color: var(--gray-999_40);
+        background: var(--card-gradient);
         box-shadow: var(--shadow-sm);
     }
 
