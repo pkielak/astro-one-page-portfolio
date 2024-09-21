@@ -11,6 +11,7 @@ import Skills from "../components/Skills.astro";
 import Portfolio from "../components/Portfolio.astro";
 import Accolades from "../components/Accolades.astro";
 
+import "aos/dist/aos.css";
 // Full Astro Component Syntax:
 // https://docs.astro.build/basics/astro-components/
 ---
@@ -19,7 +20,7 @@ import Accolades from "../components/Accolades.astro";
     <Nav />
     <main class="stack">
         <Hero
-            title="Hi, I'm John Doe"
+            title="Hi, I'm Jane Doe"
             tagline="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
         />
         <Skills />
@@ -29,6 +30,10 @@ import Accolades from "../components/Accolades.astro";
 </BaseLayout>
 
 <script>
+    import AOS from "aos";
+
+    AOS.init();
+
     const createObserver = (element: Element | null) => {
         const options = {
             threshold: 0.5,

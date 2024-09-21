@@ -19,7 +19,11 @@ const { tagline, title } = Astro.props;
     backgroundColor="linear-gradient(0deg, rgba(123, 141, 162, 0.5) 0%, rgba(247, 247, 247,1) 100%)"
 >
     <header>
-        <div class="hero stack gap-4 start">
+        <div
+            data-aos="fade-right"
+            data-aos-delay="250"
+            class="hero stack gap-4 start"
+        >
             <div class="stack gap-2">
                 <h1 class="title">{title}</h1>
                 {tagline && <p class="tagline">{tagline}</p>}
@@ -36,10 +40,11 @@ const { tagline, title } = Astro.props;
             </div>
         </div>
         <img
+            data-aos="fade-left"
             alt="Me smiling, while walking in the park"
             width="480"
             height="620"
-            src="/assets/portrait.jpg"
+            src="/assets/portrait.png"
         />
     </header>
 </Section>
@@ -56,8 +61,6 @@ const { tagline, title } = Astro.props;
         aspect-ratio: 3 / 4;
         object-fit: cover;
         object-position: top;
-        border-radius: 1.5rem;
-        box-shadow: var(--shadow-md);
     }
 
     @media (min-width: 48rem) {
@@ -65,10 +68,6 @@ const { tagline, title } = Astro.props;
             display: grid;
             grid-template-columns: 6fr 4fr;
             gap: 5rem;
-        }
-
-        header img {
-            border-radius: 4.5rem;
         }
     }
 

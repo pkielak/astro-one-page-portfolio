@@ -13,7 +13,11 @@ import { accolades } from "../content.json";
     <div class="mentions">
         {
             accolades.quotes.map((quote) => (
-                <blockquote class="quote">
+                <blockquote
+                    data-aos="fade-up"
+                    data-aos-delay="250"
+                    class="quote"
+                >
                     <p>{quote}</p>
                 </blockquote>
             ))

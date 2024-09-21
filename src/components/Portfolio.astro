@@ -12,8 +12,14 @@ import { portfolio } from "../content.json";
 >
     <div class="book-covers">
         {
-            portfolio.works.map(({ name, author, background }) => (
-                <div class="book-cover" style={`--book-bg: ${background};`}>
+            portfolio.works.map(({ name, author, background, description }) => (
+                <div
+                    data-aos="fade-up"
+                    data-aos-delay="250"
+                    class="book-cover"
+                    style={`--book-bg: ${background};`}
+                    title={description}
+                >
                     <div class="text">
                         <p class="author">{author}</p>
                         <h5 class="title">{name}</h5>

@@ -15,25 +15,25 @@
     "works": [
       {
         "name": "Lorem ipsum",
-        "author": "John Doe",
+        "author": "Jane Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
         "background": "#C06E52"
       },
       {
         "name": "Dolor sit amet",
-        "author": "John Doe",
+        "author": "Jane Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
         "background": "#F96F5D"
       },
       {
         "name": "Consectetur adipiscing elit",
-        "author": "John Doe",
+        "author": "Jane Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
         "background": "#17BEBB"
       },
       {
         "name": "Quisque nisi odio",
-        "author": "John Doe",
+        "author": "Jane Doe",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisi odio, facilisis at tempor sit amet, ornare eget tortor. Quisque lobortis laoreet tincidunt. Phasellus ut nibh sem. Morbi sagittis urna sed lacus scelerisque ultricies.",
         "background": "#8EB1C7"
       }
